@@ -10,7 +10,6 @@ import java.sql.Date;
  */
 public class Prescription {
 	public static int MAX_REFILLS = 6;
-	String prescriptionId;
 	String doctorSsn;
 	String patientSsn;
 	String drugName;
@@ -112,13 +111,5 @@ public class Prescription {
 		if (this.refillsUsed < this.refillsAuthorized) {
 			this.refillsUsed = refillsUsed;
 		}
-	}
-
-	public String getPrescriptionId() {
-		return prescriptionId;
-	}
-
-	public void setPrescriptionId(String prescriptionId) {
-		this.prescriptionId = prescriptionId;
 	}
 }

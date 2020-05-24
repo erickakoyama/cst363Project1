@@ -11,7 +11,6 @@ import cst363.model.Prescription;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.validation.Valid;
 
@@ -34,49 +33,21 @@ public class AddPrescription {
 	 */
 	@PostMapping("/prescription/new")
 	public String processForm(@Valid Prescription prescription, BindingResult result, Model model) {
-		try {
-			Integer doctorId = null;
-			Integer patientId = null;
-			Integer drugId = null;
+		if (result.hasErrors()) {
+			System.out.println("Form errors, returning newprescription template");
+			return "newprescription";
+		}
 
+		try {
 			Connection conn = jdbcTemplate.getDataSource().getConnection();
 
-			// Get the doctor id
-			PreparedStatement doctorIdPs = conn.prepareStatement("SELECT doctor_id FROM doctors WHERE doctor_ssn = ?");
-			doctorIdPs.setString(1, prescription.getDoctorSsn());
-
-			// Get the patient id
-			PreparedStatement patientIdPs = conn
-					.prepareStatement("SELECT patient_id FROM patients WHERE patient_ssn = ?");
-			patientIdPs.setString(1, prescription.getPatientSsn());
-
-			// Get the drug id
-			PreparedStatement drugIdPs = conn.prepareStatement("SELECT drug_id FROM drugs WHERE trade_name = ?");
-			drugIdPs.setString(1, prescription.getDrugName());
-
-			ResultSet doctorIdRes = doctorIdPs.executeQuery();
-			ResultSet patientIdRes = patientIdPs.executeQuery();
-			ResultSet drugIdRes = drugIdPs.executeQuery();
-
-			if (doctorIdRes.next()) {
-				doctorId = doctorIdRes.getInt(1);
-			}
-			if (patientIdRes.next()) {
-				patientId = patientIdRes.getInt(1);
-			}
-			if (drugIdRes.next()) {
-				drugId = drugIdRes.getInt(1);
-			}
-
-			prescription.setPrescriptionId(doctorId + "-" + patientId + "-" + drugId);
-
 			PreparedStatement ps = conn.prepareStatement(
-					"INSERT INTO prescriptions (patient_id, doctor_id, drug_id, prescription_date, quantity, refills_authorized) "
+					"INSERT INTO prescriptions (doctor_ssn, patient_ssn, drug_trade_name, prescription_date, quantity, refills_authorized) "
 							+ "VALUES(?, ?, ?, ?, ?, ?)");
 
-			ps.setInt(1, patientId);
-			ps.setInt(2, doctorId);
-			ps.setInt(3, drugId);
+			ps.setString(1, prescription.getDoctorSsn());
+			ps.setString(2, prescription.getPatientSsn());
+			ps.setString(3, prescription.getDrugName());
 
 			ps.setDate(4, prescription.getPrescriptionDate());
 			ps.setInt(5, prescription.getQuantity());
