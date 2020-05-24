@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html  xmlns:th="www.thymeleaf.org">
+<html xmlns:th="www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Prescription Details</title>
 </head>
 <body>
    <h1>Prescription Details</h1>
-   <div>
-      <span>First Name: </span>
-      <span id="fname">[[${fname}]]</span>      
-   </div>
-   <div>
-      <span>Last Name: </span>
-      <span id="lname">[[${lname}]]</span>      
-   </div>
-   <div>
-      <span>Doctor: </span>
-      <span id="doctor">[[{$doctor}]]</span>      
-   </div>
-   <div>
-      <span>Prescription: </span>
-      <span id="prescName">[[${prescName}]]]</span>      
-   </div>
-   <div>
-      <span>Refills: </span>
-      <span id="refills">[[${refills}]]</span>      
-   </div>
-   <div>
-      <span>Cost: </span>
-      <span id="cost">$[[${cost}]]</span>      
-   </div>
+   <form action="/ConfirmPrescription" method="POST">
+      <div>
+	      <span>First Name: </span>
+	      <span th:inline="text" id="fname">[[${fname}]]</span>      
+	   </div>
+	   <div>
+	      <span>Last Name: </span>
+	      <span th:inline="text" id="lname">[[${lname}]]</span>      
+	   </div>
+	   <div>
+	      <span>Doctor: </span>
+	      <span th:inline="text" id="doctor">[[{$doctor}]]</span>      
+	   </div>
+	   <div>
+	      <span>Prescription: </span>
+	      <span th:inline="text" id="prescName">[[${prescName}]]]</span>      
+	   </div>
+	   <div>
+	      <span>Refills: </span>
+	      <span th:inline="text" id="refills">[[${refills}]]</span>      
+	   </div>
+	   <div>
+	      <span>Cost: </span>
+	      <span th:inline="text" id="cost">$[[${cost}]]</span>      
+	   </div>   
+	   <input type="submit" value="Confirm" id="confirmPresc"/>
+   </form>
 </body>
 </html>
