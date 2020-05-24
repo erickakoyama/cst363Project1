@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html  xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+   <h1>Prescription Details</h1>
+   <div>
+      <span>First Name: </span>
+      <span id="fname">[[${fname}]]</span>      
+   </div>
+   <div>
+      <span>Last Name: </span>
+      <span id="lname">[[${lname}]]</span>      
+   </div>
+   <div>
+      <span>Doctor: </span>
+      <span id="doctor">[[{$doctor}]]</span>      
+   </div>
+   <div>
+      <span>Prescription: </span>
+      <span id="prescName">[[${prescName}]]]</span>      
+   </div>
+   <div>
+      <span>Refills: </span>
+      <span id="refills">[[${refills}]]</span>      
+   </div>
+   <div>
+      <span>Cost: </span>
+      <span id="cost">$[[${cost}]]</span>      
+   </div>
+</body>
+</html>
