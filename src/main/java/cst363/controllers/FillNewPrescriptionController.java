@@ -38,11 +38,11 @@ public class FillNewPrescriptionController
     * 
     * @return confirmation page
     */
-   @GetMapping("/PrescriptionDetails")
+   @PostMapping("/PrescriptionDetails")
    public String getPrescriptionDetails(@RequestParam("ssn") String ssn,
          @RequestParam("prescription_number") String prescNum, Model model)
    {
-      // format of dssn-pssn-genericName
+      // format of doctorId-patiendId-drugId
       String[] parsePresc = prescNum.split("-");
 
       PrescriptionDetails details = new PrescriptionDetails();
@@ -51,40 +51,18 @@ public class FillNewPrescriptionController
       {
          Connection con = jdbcTemplate.getDataSource().getConnection();
          
-         /*
-          * select 
-   concat(p.first_name, " ", p.last_name) as patient_name,
-   @pharm = p.prefered_pharmacy,
-   concat(d.first_name, " ", d.last_name) as doctor_name,
-   drugs.generic_name as drug_name,
-   @drugId = drugs.drug_id,
-   c.price as cost
-from 
-   patients p, doctors d, drugs drugs, drug_price c
-where
-   d.doctor_ssn = ? AND
-   p.patient_ssn = ? AND
-   drugs.generic_name = ? AND
-   c.pharmacy_id = @pharm AND
-   c.drug_id = @drugId
-   
-   */
          // query statement
          PreparedStatement ps = con.prepareStatement("select \r\n" + 
                "   concat(p.first_name, \" \", p.last_name) as patient_name,\r\n" + 
-               "   @pharm = p.prefered_pharmacy,\r\n" + 
                "   concat(d.first_name, \" \", d.last_name) as doctor_name,\r\n" + 
-               "   drugs.generic_name as drug_name,\r\n" + 
-               "   @drugId = drugs.drug_id,\r\n" + 
-               "   c.price as cost\r\n" + 
+               "    drugs.generic_name as drug_name,\r\n" + 
+               "   price.price as amount\r\n" + 
                "from \r\n" + 
-               "   patients p, doctors d, drugs drugs, drug_price c\r\n" + 
+               "   patients p, doctors d, drugs drugs, drug_price price\r\n" + 
                "where\r\n" + 
-               "   d.doctor_ssn = ? AND\r\n" + 
-               "   p.patient_ssn = ? AND\r\n" + 
-               "   drugs.generic_name = ? AND\r\n" + 
-               "   c.pharmacy_id = @pharm AND\r\n" + 
-               "   c.drug_id = @drugId");
+               "   d.doctor_id = ? AND\r\n" + 
+               "   p.patient_id = ? AND\r\n" + 
+               "    price.drug_id = ?");
          
          // set query values based on parsed
          ps.setString(1, parsePresc[0]);
@@ -101,6 +79,11 @@ where
          model.addAttribute("detailsModel", details.rxCost);
       } catch (SQLException e)
       {
+         System.out.println("Error:  Fill New Prescription SQLException " + e.getMessage());
+         model.addAttribute("msg", e.getMessage());
+         return "error";
+      } catch (Exception e)
+      {
          System.out.println("Error:  Prescription#prescription/new SQLException " + e.getMessage());
          model.addAttribute("msg", e.getMessage());
          return "error";
@@ -112,11 +95,11 @@ where
    /**
     * called when the user continues / agrees with details page
     */
-   @PostMapping("/ConfirmPrescription")
+   @GetMapping("/ConfirmPrescription")
    public String submitFillNewPrescription()
    {
       // update prescription here
-      // subtract from refills column
+      // subtract from refills column when patient picks up meds
       // TODO: send to pharmacy so they can fill prescription and ship
       return "FillNewPrescriptionSuccessView";
    }

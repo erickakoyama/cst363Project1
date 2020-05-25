@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Fill New Prescription</title>
 </head>
 <body>
    <h1>Fill New Prescription</h1>
-   <form action="/PrescriptionDetails" method="GET">
+   <form action="#" th:action="@{/PrescriptionDetails}" method="post">
       <label for="ssn">Social Security Number</label>
       <input placeholder="123-45-6789" type="text" id="ssn" name="ssn"/>
       <br/>
       <label for="prescription_number">Prescription Number</label>
-      <input placeholder="123-456-GenericName" type="text" id="prescription_number" name="prescription_number"/>
+      <input placeholder="123-456-789" type="text" id="prescription_number" name="prescription_number"/>
       <br/>
       <input type="submit" id="submitPresc" name="submitPresc" value="submit">
    </form>

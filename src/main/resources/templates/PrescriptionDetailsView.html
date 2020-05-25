@@ -2,12 +2,12 @@
 <html xmlns:th="www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Prescription Details</title>
+<title>Confirm Prescription Details</title>
 </head>
 <body>
-   <h1>Prescription Details</h1>
+   <h1>Confirm Prescription Details</h1>
 <!--    th:object="${detailsModel}" -->
-   <form action="/ConfirmPrescription" method="POST" >
+   <form action="#" th:action="@{/ConfirmPrescription}" method="get" >
       <div>
 	      <span>Last Name: </span>
 	      <span th:inline="text" id="name">[[${deatilsModel.name}]]</span>      
