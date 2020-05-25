@@ -7,22 +7,22 @@
 <body>
    <h1>Confirm Prescription Details</h1>
 <!--    th:object="${detailsModel}" -->
-   <form action="#" th:action="@{/ConfirmPrescription}" method="get" >
+   <form action="#" th:action="@{/ConfirmPrescription}"  method="get" >
       <div>
-	      <span>Last Name: </span>
-	      <span th:inline="text" id="name">[[${deatilsModel.name}]]</span>      
+	      <span>Patient: </span>
+	      <span th:inline="text" id="name">[[${detailsModel.name}]]</span>      
 	   </div>
 	   <div>
 	      <span>Doctor: </span>
-	      <span th:inline="text" id="doctor">[[${deatilsModel.doctor}]]</span>      
+	      <span th:inline="text" id="doctor">[[${detailsModel.doctor}]]</span>      
 	   </div>
 	   <div>
 	      <span>Prescription: </span>
-	      <span th:inline="text" id="drugName">[[${deatilsModel.drugName}]]]</span>      
+	      <span th:inline="text" id="drugName">[[${detailsModel.drugName}]]</span>      
 	   </div>
 	   <div>
 	      <span>Cost: </span>
-	      <span th:inline="text" id="cost">$[[${deatilsModel.rxCost}]]</span>      
+	      <span th:inline="text" id="cost">$[[${detailsModel.rxCost}]]</span>      
 	   </div>   
 	   <div>
 	     <input type="submit" value="Confirm" id="confirmPresc"/>
