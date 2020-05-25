@@ -72,7 +72,7 @@ public class AddPrescription {
 			}
 
 			PreparedStatement ps = conn.prepareStatement(
-					"INSERT INTO prescriptions (patient_id, doctor_id, drug_id, prescription_date, quantity, refills_authorized) "
+					"REPLACE INTO prescriptions (patient_id, doctor_id, drug_id, prescription_date, quantity, refills_authorized) "
 							+ "VALUES(?, ?, ?, ?, ?, ?)");
 
 			ps.setInt(1, patientId);
