@@ -6,32 +6,29 @@
 </head>
 <body>
    <h1>Prescription Details</h1>
-   <form action="/ConfirmPrescription" method="POST">
+<!--    th:object="${detailsModel}" -->
+   <form action="/ConfirmPrescription" method="POST" >
       <div>
-	      <span>First Name: </span>
-	      <span th:inline="text" id="fname">[[${fname}]]</span>      
-	   </div>
-	   <div>
 	      <span>Last Name: </span>
-	      <span th:inline="text" id="lname">[[${lname}]]</span>      
+	      <span th:inline="text" id="name">[[${deatilsModel.name}]]</span>      
 	   </div>
 	   <div>
 	      <span>Doctor: </span>
-	      <span th:inline="text" id="doctor">[[{$doctor}]]</span>      
+	      <span th:inline="text" id="doctor">[[${deatilsModel.doctor}]]</span>      
 	   </div>
 	   <div>
 	      <span>Prescription: </span>
-	      <span th:inline="text" id="prescName">[[${prescName}]]]</span>      
-	   </div>
-	   <div>
-	      <span>Refills: </span>
-	      <span th:inline="text" id="refills">[[${refills}]]</span>      
+	      <span th:inline="text" id="drugName">[[${deatilsModel.drugName}]]]</span>      
 	   </div>
 	   <div>
 	      <span>Cost: </span>
-	      <span th:inline="text" id="cost">$[[${cost}]]</span>      
+	      <span th:inline="text" id="cost">$[[${deatilsModel.rxCost}]]</span>      
 	   </div>   
-	   <input type="submit" value="Confirm" id="confirmPresc"/>
+	   <div>
+	     <input type="submit" value="Confirm" id="confirmPresc"/>
+	     <a href="http://localhost:8080">Cancel</a>
+	   </div>
+	   	   
    </form>
 </body>
 </html>
