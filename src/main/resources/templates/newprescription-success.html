@@ -13,12 +13,10 @@
 		<h1>Prescription Created!</h1>
 
 		<h4 class="text-uppercase">Prescription Info:</h4>
-		<div class="panel panel-default text-left"
-			style="width: 80%; margin: 0 auto;">
+		<div class="panel panel-default text-left" style="width: 80%; margin: 0 auto;">
 			<div class="panel-body">
 				<p th:inline="text">
-					<b>Prescription ID:</b>
-					[[${prescription.doctorSsn}]]-[[${prescription.patientSsn}]]-[[${prescription.drugName}]]
+					<b>Prescription ID:</b> [[${prescription.doctorId}]]-[[${prescription.patientId}]]-[[${prescription.drugId}]]
 				</p>
 
 				<p th:inline="text">
