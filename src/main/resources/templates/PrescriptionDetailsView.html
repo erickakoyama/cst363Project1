@@ -7,7 +7,7 @@
 <body>
    <h1>Confirm Prescription Details</h1>
 <!--    th:object="${detailsModel}" -->
-   <form action="#" th:action="@{/ConfirmPrescription}"  method="get" >
+   <form action="#" th:action="@{/ConfirmPrescription}"  method="post" >
       <div>
 	      <span>Patient: </span>
 	      <span th:inline="text" id="name">[[${detailsModel.name}]]</span>      
@@ -28,7 +28,8 @@
 	     <input type="submit" value="Confirm" id="confirmPresc"/>
 	     <a href="http://localhost:8080">Cancel</a>
 	   </div>
-	   	   
+   	<input type="hidden" th:value="${detailsModel.prescNum}" id="prescNum" name="prescNum"/>
+   	<input type="hidden" th:value="${detailsModel.prefPharm}" id="prefPharm" name="prefPharm"/>   	
    </form>
 </body>
 </html>
