@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Confirm Prescription Details</title>
+</head>
+<body>
+   <h1>Confirm Prescription Details</h1>
+<!--    th:object="${detailsModel}" -->
+   <form action="#" th:action="@{/ConfirmPrescription}"  method="get" >
+      <div>
+	      <span>Patient: </span>
+	      <span th:inline="text" id="name">[[${detailsModel.name}]]</span>      
+	   </div>
+	   <div>
+	      <span>Doctor: </span>
+	      <span th:inline="text" id="doctor">[[${detailsModel.doctor}]]</span>      
+	   </div>
+	   <div>
+	      <span>Prescription: </span>
+	      <span th:inline="text" id="drugName">[[${detailsModel.drugName}]]</span>      
+	   </div>
+	   <div>
+	      <span>Cost: </span>
+	      <span th:inline="text" id="cost">$[[${detailsModel.rxCost}]]</span>      
+	   </div>   
+	   <div>
+	     <input type="submit" value="Confirm" id="confirmPresc"/>
+	     <a href="http://localhost:8080">Cancel</a>
+	   </div>
+	   	   
+   </form>
+</body>
+</html>
