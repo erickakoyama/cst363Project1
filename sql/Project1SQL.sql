@@ -107,6 +107,7 @@ CREATE TABLE IF NOT EXISTS `drug_db`.`drugs` (
   `drug_id` INT(11) NOT NULL AUTO_INCREMENT,
   `trade_name` VARCHAR(45) NOT NULL,
   `generic_name` VARCHAR(45) NOT NULL,
+  `dosage` INT(11) NOT NULL DEFAULT 0,
   `pharma_company_id` INT(11) NOT NULL,
   PRIMARY KEY (`drug_id`),
   INDEX `idx_pharma_company_id` (`pharma_company_id` ASC) ,
@@ -117,7 +118,6 @@ CREATE TABLE IF NOT EXISTS `drug_db`.`drugs` (
     ON DELETE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
-
 
 -- -----------------------------------------------------
 -- Table `drug_db`.`drug_price`
@@ -174,6 +174,7 @@ CREATE TABLE IF NOT EXISTS `drug_db`.`prescriptions` (
   `patient_id` INT(11) NOT NULL,
   `doctor_id` INT(11) NOT NULL,
   `drug_id` INT(11) NOT NULL,
+  `pharmacy_id` INT(11) NOT NULL DEFAULT 1,
   `prescription_date` DATETIME NOT NULL,
   `quantity` INT(11) NOT NULL,
   `refills_used` INT(11) NOT NULL DEFAULT '0',
@@ -192,7 +193,6 @@ CREATE TABLE IF NOT EXISTS `drug_db`.`prescriptions` (
     REFERENCES `drug_db`.`drugs` (`drug_id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
-
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
