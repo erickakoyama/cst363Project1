@@ -31,11 +31,11 @@ insert into pharma_company values
 
 -- drugs
 insert into drugs values
-(null, 'Benadryl', 'diphenhydramine', 1), -- id 1
-(null, 'Flovent HFA', 'Fluticasone', 2), -- id 2
-(null, 'Sudafed', 'Pseudoephedrine', 3), -- id 3
-(null, 'Flonase', 'Fluticasone', 4), -- id 4
-(null, 'Mylanta', 'aluminum hydroxide/magnesium', 2); -- id 5
+(null, 'Benadryl', 'diphenhydramine', 20, 1), -- id 1
+(null, 'Flovent HFA', 'Fluticasone', 15, 2), -- id 2
+(null, 'Sudafed', 'Pseudoephedrine', 40, 3), -- id 3
+(null, 'Flonase', 'Fluticasone', 30, 4), -- id 4
+(null, 'Mylanta', 'aluminum hydroxide/magnesium', 10, 2); -- id 5
 
 -- drug price
 insert into drug_price values
@@ -52,13 +52,13 @@ insert into drug_price values
 
 -- perscriptions
 insert into prescriptions values
-(1, 1, 1, current_date(), 40, 0, 6),
-(2, 3, 3, current_date(), 20, 3, 6),
-(3, 4, 2, current_date(), 15, 2, 6),
-(4, 2, 4, current_date(), 30, 1, 6),
-(5, 3, 3, current_date(), 20, 5, 6),
-(1, 1, 2, current_date(), 15, 1, 6),
-(2, 4, 2, current_date(), 15, 0, 6);
+(1, 1, 1, 1, current_date(), 40, 0, 6),
+(2, 3, 3, 1, current_date(), 20, 3, 6),
+(3, 4, 2, 2, current_date(), 15, 2, 6),
+(4, 2, 4, 3, current_date(), 30, 1, 6),
+(5, 3, 3, 4, current_date(), 20, 5, 6),
+(1, 1, 2, 5, current_date(), 15, 1, 6),
+(2, 4, 2, 5, current_date(), 15, 0, 6);
 
 -- contracts
 insert into contracts values
