@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<title>Prescription Created</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container"
+		style="width: 80%; margin: 0 auto; text-align: center;">
+		<h1>Prescription Created!</h1>
+
+		<h4 class="text-uppercase">Prescription Info:</h4>
+		<div class="panel panel-default text-left"
+			style="width: 80%; margin: 0 auto;">
+			<div class="panel-body">
+				<p th:inline="text">
+					<b>Prescription ID:</b>
+					[[${prescription.doctorSsn}]]-[[${prescription.patientSsn}]]-[[${prescription.drugName}]]
+				</p>
+
+				<p th:inline="text">
+					<b>Drug Name:</b> [[${prescription.drugName}]]
+				</p>
+
+				<p th:inline="text">
+					<b>Quantity:</b> [[${prescription.quantity}]]
+				</p>
+
+				<p th:inline="text">
+					<b>Refills:</b> [[${prescription.refillsAuthorized}]]
+				</p>
+
+				<p th:inline="text">
+					<b>Prescription Date:</b> [[${prescription.prescriptionDate}]]
+				</p>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>

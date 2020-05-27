@@ -58,15 +58,7 @@ insert into prescriptions values
 (4, 2, 4, current_date(), 30, 1, 6, 3),
 (5, 3, 3, current_date(), 20, 5, 6, null),
 (1, 1, 2, current_date(), 15, 1, 6, 5),
-(2, 4, 2, current_date(), 15, 0, 6, 5),
-(1, 2, 2, current_date(), 15, 1, 6, 5),
-(1, 3, 3, current_date(), 15, 1, 6, 5),
-(1, 4, 4, current_date(), 15, 1, 6, 5),
-(1, 5, 5, current_date(), 15, 1, 6, 5),
-(2, 2, 2, current_date(), 15, 1, 6, 5),
-(3, 3, 3, current_date(), 15, 1, 6, 5),
-(4, 4, 4, current_date(), 15, 1, 6, 5),
-(5, 5, 5, current_date(), 15, 1, 6, 5);
+(2, 4, 2, current_date(), 15, 0, 6, 5);
 
 -- contracts
 insert into contracts values
