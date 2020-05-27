@@ -45,6 +45,44 @@
                     </div>
                 </div>
             </div>
+
+            <div class="container mt-3 mb-5">
+                <div id="pr_by_pharma">
+                    <div class="card card-body">
+                    	<h3>Prescription Quantity by Pharmacy</h3>
+                        <h5>Report Description</h5>
+                        <p>
+                            Pharmacy managers can request a report of the quantity of drugs that have been used in the last month. 
+                            This Report contains the name of the drug and the quantity used. Input is the id of the pharmacy and the date range for the report.
+                        </p>
+                        <div class="col-6">
+                            <form action="/reports/select/pr_by_pharma" method="POST">
+                                <fieldset>
+                                <legend>Select Report Parameters</legend>
+                                <div class="form-group">
+                                    <label for="pharmacy_id">Pharmacy ID</label>
+                                    
+                                    <select class="form-control" id="pharmacy_id" name="pharmacy_id">
+                                        <div th:each="pharmacyId:${pharmacyId}">
+                                            <option>[[${pharmacyId.pharmacyId}]]</option>
+                                        </div>
+                                    </select>
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="start_date">Start Date</label>
+                                    <input class="form-control" type="date" id="start_date_input" name="start_date_input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="end_date">End Date</label>
+                                    <input class="form-control" type="date" id="end_date_input" name="end_date_input">
+                                </div>
+                                  <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                                </fieldset>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>   
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

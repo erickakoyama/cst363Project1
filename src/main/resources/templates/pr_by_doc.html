@@ -45,6 +45,34 @@
                     </div>
                 </div>
             </div>
+            <div class="container mt-3 mb-5">
+                <div id="pr_by_doc">
+                    <div class="card card-body">
+                    	<h3>Prescription Quantity by Doctor</h3>
+                        <h5>Report Description</h5>
+                        <p>
+                            An FDA government official can query for the quantity of drugs that each doctor has prescribed in the last 6 months. 
+                            The report shows doctor’s name, the drug name and quantity prescribed. Input is date range.
+                        </p>
+                        <div class="col-6">
+                            <form action="/reports/select?report_name=pr_by_doc" method="POST">
+                                <fieldset>
+                                <legend>Select Report Parameters</legend>
+                                    <div class="form-group">
+                                    <label for="start_date">Start Date</label>
+                                    <input class="form-control" type="date" id="fda_start_date" name="fda_start_date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="end_date">End Date</label>
+                                    <input class="form-control" type="date" id="fda_start_end" name="fda_start_end">
+                                </div>
+                                  <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
+                                </fieldset>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>   
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
