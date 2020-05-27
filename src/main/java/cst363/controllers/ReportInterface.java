@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cst363.model.PharmacyPrescriptions;
+import cst363.model.DoctorPrescriptions;
 import cst363.model.Pharmacy;
 
 @Controller
@@ -76,12 +77,12 @@ public class ReportInterface {
 					"WHERE prescription_date between ? and ?\n" + 
 					"GROUP BY 1, 2, 3;";
 			
-			 List<CONTROLLER> prescriptions = jdbcTemplate.query(
+			 List<DoctorPrescriptions> prescriptions = jdbcTemplate.query(
 					 sql, new Object[] {start_date, end_date} ,
-					 (rs, rowNum) -> new {{CONTROLLER}}(rs.getString("full_name"),
-					                               rs.getString("trade_name"),
+					 (rs, rowNum) -> new DoctorPrescriptions(rs.getString("full_name"),
 					                               rs.getString("generic_name"),
-					                               rs.getInt("quantity"));
+					                               rs.getString("trade_name"),
+					                               rs.getString("quantity")));
 			 
 			 model.addAttribute("prescriptions", prescriptions);
 					   
@@ -131,5 +132,5 @@ public class ReportInterface {
 			model.addAttribute("msg", se.getMessage());
 			return "error";
 		}
-	}
+	}	
 }

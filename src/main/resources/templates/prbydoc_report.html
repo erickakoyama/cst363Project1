@@ -9,24 +9,22 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-light">
-        <a class="navbar-brand text-dark" href="/index.html">Drugs-R-Us</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link" href="/index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  Prescriptions
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/prescription/new">Create Prescription</a>
-                </div>
-              </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/reports">Reports</a>
-            </li>
-        </ul>
-        
+	        <a class="navbar-brand text-dark" href="#">Drugs-R-Us</a>
+	        <ul class="navbar-nav">
+	            <li class="nav-item">
+	            <a class="nav-link" href="/">Home</a>
+	            </li>
+	            
+                <li class="nav-item">
+                    <a class="nav-link" href="/prescription/new">Create Prescription</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/FillNewPrescription">Fill New Prescription</a>
+                </li>
+	            <li class="nav-item">
+	            <a class="nav-link" href="/reports">Reports</a>
+	            </li>
+	        </ul>
         </nav>
         <div class="container mt-3 mb-3">
         	<button class="btn btn-light d-inline" type="button"><a href="/reports">Run New Report</a></button>
@@ -42,12 +40,14 @@
                         <table class="table">
                             <tr>
                                    <th>Pharmacy Name</th>
+                                   <th>Generic Name</th>
                                    <th>Trade Name</th>
                                    <th>Quantity Sold</th>
                             </tr>
                             <div th:each="prescriptions:${prescriptions}">
                                 <tr>
-                                    <td th:inline="text">[[${prescriptions.pharmacyName}]]</td>
+                                    <td th:inline="text">[[${prescriptions.doctorName}]]</td>
+                                    <td th:inline="text">[[${prescriptions.genericName}]]</td>
                                     <td th:inline="text">[[${prescriptions.tradeName}]]</td>
                                     <td th:inline="text">[[${prescriptions.quantity}]]</td>
                                 </tr>
