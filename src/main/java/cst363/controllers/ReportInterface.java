@@ -86,7 +86,7 @@ public class ReportInterface {
 			 model.addAttribute("prescriptions", prescriptions);
 					   
 			conn.close();
-			return "reportsuccess";
+			return "prbydoc_report";
 		} catch (SQLException se) {
 			System.out.println("Error");
 			model.addAttribute("msg", se.getMessage());
@@ -125,7 +125,7 @@ public class ReportInterface {
 			 model.addAttribute("prescriptions", prescriptions);
 					   
 			conn.close();
-			return "reportsuccess";
+			return "prbypharma_report";
 		} catch (SQLException se) {
 			System.out.println("Error");
 			model.addAttribute("msg", se.getMessage());
