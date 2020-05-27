@@ -70,6 +70,21 @@ public class AddPrescription {
 				drugId = drugIdRes.getInt(1);
 				prescription.setDrugId(drugId);
 			}
+			
+			if (doctorId == null) {
+				model.addAttribute("msg", "There was no doctor found with an ssn of: " + prescription.getDoctorSsn() + ".");
+				return "error";
+			}
+			
+			if (patientId == null) {
+				model.addAttribute("msg", "There was no patient found with an ssn of: " + prescription.getPatientSsn() + ".");
+				return "error";
+			}
+			
+			if (drugId == null) {
+				model.addAttribute("msg", "There was no drug found with a trade name of: " + prescription.getDrugName() + ".");
+				return "error";
+			}
 
 			PreparedStatement ps = conn.prepareStatement(
 					"REPLACE INTO prescriptions (patient_id, doctor_id, drug_id, prescription_date, quantity, refills_authorized, pharmacy_id) "
