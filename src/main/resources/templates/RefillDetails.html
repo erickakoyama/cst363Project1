@@ -1,0 +1,19 @@
+<!doctype html>
+<!-- IS THIS EVEN USED???? -->
+<html xmlns:th="www.thymeleaf.org">
+   <head>
+      <meta charset="ISO-8859-1">
+      <title>Confirm Refill</title>
+   </head>
+   <body>
+      <h1>Confirm Refill</h1>
+      <form action="#" th:action="@{/ConfirmRefill}" method="get">
+         <div>
+            <span>Prescription ID</span>
+            <span th:inline="text" id="prescID">[[$prescNum]]</span>
+         </div>
+         <input type="submit" value="Confirm" id="confirmRefill"/>
+         <a href="http://localhost:8080">Cancel</a>
+      </form>
+   </body>
+</html>
