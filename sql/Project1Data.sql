@@ -1,6 +1,6 @@
 -- doctors
 insert into drug_db.doctors values
--- (null, '234-56-7890', 'Will', 'Chen', 'Primary Care', 10), -- id 1
+(null, '234-56-7890', 'Will', 'Chen', 'Primary Care', 10), -- id 1
 (null, '111-11-1111', 'Joe', 'Dirt', 'Oncologist', 7), -- id 2
 (null, '222-22-2222', 'Meredith', 'Gray', 'Surgeon', 12), -- id 3
 (null, '333-33-3333', 'Elizabeth', 'Merry', 'Neonatal', 8), -- id 4
@@ -35,7 +35,7 @@ insert into drugs values
 (null, 'Flovent HFA', 'Fluticasone 40 mg', 2), -- id 2
 (null, 'Sudafed', 'Pseudoephedrine 200 mg', 3), -- id 3
 (null, 'Flonase', 'Fluticasone 30 mg', 4), -- id 4
-(null, 'Mylanta', 'aluminum hydroxide/magnesium 100 mg', 10, 2); -- id 5
+(null, 'Mylanta', 'aluminum hydroxide/magnesium 100 mg', 4); -- id 5
 
 -- drug price
 insert into drug_price values
@@ -52,21 +52,13 @@ insert into drug_price values
 
 -- perscriptions
 insert into prescriptions values
-(1, 1, 1, current_date(), 40, 0, 6, null),
-(2, 3, 3, current_date(), 20, 3, 6, null),
-(3, 4, 2, current_date(), 15, 2, 6, 2),
-(4, 2, 4, current_date(), 30, 1, 6, 3),
-(5, 3, 3, current_date(), 20, 5, 6, null),
-(1, 1, 2, current_date(), 15, 1, 6, 5),
-(2, 4, 2, current_date(), 15, 0, 6, 5),
-(1, 2, 2, current_date(), 15, 1, 6, 5),
-(1, 3, 3, current_date(), 15, 1, 6, 5),
-(1, 4, 4, current_date(), 15, 1, 6, 5),
-(1, 5, 5, current_date(), 15, 1, 6, 5),
-(2, 2, 2, current_date(), 15, 1, 6, 5),
-(3, 3, 3, current_date(), 15, 1, 6, 5),
-(4, 4, 4, current_date(), 15, 1, 6, 5),
-(5, 5, 5, current_date(), 15, 1, 6, 5);
+(1, 1, 1, 1, current_date(), 40, 0, 6),
+(2, 3, 3, 1, current_date(), 20, 3, 6),
+(3, 4, 2, 2, current_date(), 15, 2, 6),
+(4, 2, 4, 2, current_date(), 30, 1, 6),
+(5, 3, 3, 3, current_date(), 20, 5, 6),
+(1, 1, 2, 3, current_date(), 15, 1, 6),
+(2, 4, 2, 4, current_date(), 15, 0, 6);
 
 -- contracts
 insert into contracts values

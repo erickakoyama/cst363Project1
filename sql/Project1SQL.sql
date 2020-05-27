@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `drug_db`.`contracts` (
   `end_date` DATE NULL DEFAULT NULL,
   `supervisor` VARCHAR(50) NOT NULL,
   PRIMARY KEY (`pharma_company_id`, `pharmacy_id`),
-  INDEX `fk_constracts_pharmacy` (`pharmacy_id` ASC) ,
+  INDEX `fk_contracts_pharmacy` (`pharmacy_id` ASC) ,
   CONSTRAINT `fk_contracts_pharma_company`
     FOREIGN KEY (`pharma_company_id`)
     REFERENCES `drug_db`.`pharma_company` (`pharma_company_id`),
