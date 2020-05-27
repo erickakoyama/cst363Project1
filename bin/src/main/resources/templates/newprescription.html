@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<title>Create a Prescription</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container" style="width: 80%; margin: 0 auto; text-align: center;">
+		<h1>New Prescription</h1>
+		<form action="#" th:action="@{/prescription/new}"
+			th:object="${prescription}" method="post">
+			<div class="form-group">
+				<label>Doctor SSN: <input type="text"
+					th:field="*{doctorSsn}" />
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label> Patient SSN: <input type="text"
+					th:field="*{patientSsn}" />
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label> Drug Name: <input type="text" th:field="*{drugName}" />
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label> Quantity: <input type="text" th:field="*{quantity}" />
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label> Refills: <input type="text"
+					th:field="*{refillsAuthorized}" />
+				</label>
+			</div>
+			<br /> <input class="btn btn-primary" type="submit" value="Submit" />
+		</form>
+	</div>
+</body>
+</html>
