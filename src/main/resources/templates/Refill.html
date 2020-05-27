@@ -1,0 +1,19 @@
+<!doctype html>
+<html xmlns:th="www.thymeleaf.org">
+   <head>
+      <meta charset="ISO-8859-1">
+      <title>Refill Request Form</title>
+   </head>
+   <body>
+      <h1>Refill Request</h1>
+      <form action="#" th:action="@{/RefillDetails}" method="post">
+      <label for="ssn">Social Security Number</label>
+      <input placeholder="123-45-6789" type="text" id="ssn" name="ssn"/>
+      <br/>
+      <label for="prescNum">Prescription Number</label>
+      <input placeholder="123-456-789" type="text" id="prescNum" name="prescNum"/>
+      <br/>
+      <input type="submit" id="submitPresc" name="submitPresc" value="submit">
+        </form>
+   </body>
+</html>
