@@ -9,24 +9,22 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-light">
-        <a class="navbar-brand text-dark" href="/index.html">Drugs-R-Us</a>
-        <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link" href="/index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                  Prescriptions
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/prescription/new">Create Prescription</a>
-                </div>
-              </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/reports">Reports</a>
-            </li>
-        </ul>
-        
+	        <a class="navbar-brand text-dark" href="#">Drugs-R-Us</a>
+	        <ul class="navbar-nav">
+	            <li class="nav-item">
+	            <a class="nav-link" href="/">Home</a>
+	            </li>
+	            
+                <li class="nav-item">
+                    <a class="nav-link" href="/prescription/new">Create Prescription</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/FillNewPrescription">Fill New Prescription</a>
+                </li>
+	            <li class="nav-item">
+	            <a class="nav-link" href="/reports">Reports</a>
+	            </li>
+	        </ul>
         </nav>
         <div class="container">
             <div class="jumbotron m-3 bg-primary text-light">
@@ -55,16 +53,16 @@
                             The report shows doctor’s name, the drug name and quantity prescribed. Input is date range.
                         </p>
                         <div class="col-6">
-                            <form action="/reports/select?report_name=pr_by_doc" method="POST">
+                            <form action="/reports/select/pr_by_doc" method="POST">
                                 <fieldset>
                                 <legend>Select Report Parameters</legend>
                                     <div class="form-group">
                                     <label for="start_date">Start Date</label>
-                                    <input class="form-control" type="date" id="fda_start_date" name="fda_start_date">
+                                    <input class="form-control" type="date" id="start_date_input" name="start_date_input">
                                 </div>
                                 <div class="form-group">
                                     <label for="end_date">End Date</label>
-                                    <input class="form-control" type="date" id="fda_start_end" name="fda_start_end">
+                                    <input class="form-control" type="date" id="end_date_input" name="end_date_input">
                                 </div>
                                   <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
                                 </fieldset>
@@ -82,7 +80,7 @@
         <script>
             $( document ).ready(function() {
             	var d = new Date();
-                d.setDate(d.getDate() - 30);
+                d.setDate(d.getDate() - 180);
                 year = d.getFullYear();
             	month = d.getMonth() + 1;
                 if(month < 10) {month='0'+month;}
