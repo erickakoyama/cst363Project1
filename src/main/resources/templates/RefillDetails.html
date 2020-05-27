@@ -1,19 +1,41 @@
 <!doctype html>
 <!-- IS THIS EVEN USED???? -->
 <html xmlns:th="www.thymeleaf.org">
-   <head>
-      <meta charset="ISO-8859-1">
-      <title>Confirm Refill</title>
-   </head>
-   <body>
-      <h1>Confirm Refill</h1>
-      <form action="#" th:action="@{/ConfirmRefill}" method="get">
-         <div>
-            <span>Prescription ID</span>
-            <span th:inline="text" id="prescID">[[$prescNum]]</span>
-         </div>
-         <input type="submit" value="Confirm" id="confirmRefill"/>
-         <a href="http://localhost:8080">Cancel</a>
-      </form>
-   </body>
+<head>
+<meta charset="ISO-8859-1">
+<title>Confirm Refill</title>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/cosmo/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9/chHLTCcBULgxOFoUyZXSgEF0uFXs+NrQqzcy/DXqcR+Sk8C1l4EgmUXAEzTb92"
+	crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-light">
+		<a class="navbar-brand text-dark" href="#">Drugs-R-Us</a>
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="/prescription/new">Create Prescription</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/FillNewPrescription">Fill New Prescription</a></li>
+			<li class="nav-item"><a class="nav-link" href="/Refill">Refill
+					Prescription</a></li>
+			<li class="nav-item"><a class="nav-link" href="/reports">Reports</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div>
+		<h1>Confirm Refill</h1>
+		<form action="#" th:action="@{/ConfirmRefill}" method="get">
+			<div>
+				<span>Prescription ID</span> <span th:inline="text" id="prescID">[[$prescNum]]</span>
+			</div>
+			<input type="submit" value="Confirm" id="confirmRefill" /> <a
+				href="http://localhost:8080">Cancel</a>
+		</form>
+	</div>
+</body>
 </html>

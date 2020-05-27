@@ -1,19 +1,41 @@
 <!doctype html>
 <html xmlns:th="www.thymeleaf.org">
-   <head>
-      <meta charset="ISO-8859-1">
-      <title>Refill Request Form</title>
-   </head>
-   <body>
-      <h1>Refill Request</h1>
-      <form action="#" th:action="@{/RefillDetails}" method="post">
-      <label for="ssn">Social Security Number</label>
-      <input placeholder="123-45-6789" type="text" id="ssn" name="ssn"/>
-      <br/>
-      <label for="prescNum">Prescription Number</label>
-      <input placeholder="123-456-789" type="text" id="prescNum" name="prescNum"/>
-      <br/>
-      <input type="submit" id="submitPresc" name="submitPresc" value="submit">
-        </form>
-   </body>
+<head>
+<meta charset="ISO-8859-1">
+<title>Refill Request Form</title>
+<link
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/cosmo/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-9/chHLTCcBULgxOFoUyZXSgEF0uFXs+NrQqzcy/DXqcR+Sk8C1l4EgmUXAEzTb92"
+	crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-expand-sm bg-light">
+		<a class="navbar-brand text-dark" href="#">Drugs-R-Us</a>
+		<ul class="navbar-nav">
+			<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+
+			<li class="nav-item"><a class="nav-link"
+				href="/prescription/new">Create Prescription</a></li>
+			<li class="nav-item"><a class="nav-link"
+				href="/FillNewPrescription">Fill New Prescription</a></li>
+			<li class="nav-item"><a class="nav-link" href="/Refill">Refill
+					Prescription</a></li>
+			<li class="nav-item"><a class="nav-link" href="/reports">Reports</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		<h1>Refill Request</h1>
+		<form action="#" th:action="@{/RefillDetails}" method="post">
+			<label for="ssn">Social Security Number</label> <input
+				placeholder="123-45-6789" type="text" id="ssn" name="ssn" /> <br />
+			<label for="prescNum">Prescription Number</label> <input
+				placeholder="123-456-789" type="text" id="prescNum" name="prescNum" />
+			<br /> <input type="submit" id="submitPresc" name="submitPresc"
+				value="submit">
+		</form>
+	</div>
+</body>
 </html>
